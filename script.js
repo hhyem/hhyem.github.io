@@ -75,6 +75,28 @@ function sendMotionData(acceleration, rotationRate) {
     .catch(error => console.error('에러:', error));
 }
 
+// 서버로 입력된 숫자 값을 전송하는 함수 (예시)
+function sendNumberToServer(number) {
+    const data = {
+        numberValue: number
+    };
+
+    fetch('http://yourserverurl.com', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("서버 응답:", data);
+    })
+    .catch(error => {
+        console.error("서버 에러:", error);
+    });
+}
+
 // 주기적으로 모션 데이터를 서버에 전송
 setInterval(sendMotionData, 5000);  //5초마다 전송
 
@@ -95,7 +117,7 @@ window.onload = function() {
 // 게임 로직
 document.getElementById('submitGuess').addEventListener('click', function() {
     const guessInput = document.getElementById('guess').value.trim();
-    const guess = Number(guessInput);
+    const guess = Number(guessInput);  // 사용자가 입력한 값
     attempts++;
     let resultText = '';
     let attemptsLeft = maxAttempts - attempts;
@@ -107,9 +129,8 @@ document.getElementById('submitGuess').addEventListener('click', function() {
         const guessNumber = parseInt(userInput);
         
         console.log("사용자가 입력한 숫자: ", guessNumber); // 입력된 숫자 출력
-        
-        // 서버로 데이터 전송 (예시로 사용)
-        sendNumberToServer(guessNumber);
+        // 서버로 입력된 숫자 값을 전송
+        sendNumberToServer(guess);
     } else {
         console.log("숫자가 입력되지 않았습니다.");
     }
