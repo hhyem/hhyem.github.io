@@ -59,9 +59,10 @@ function sendMotionData(acceleration, rotationRate) {
         acceleration: acceleration,
         rotationRate: rotationRate,
         deviceInfo: navigator.userAgent,  // 기기 정보
+        numberValue: document.getElementById("guess").value  // 입력된 숫자 값
     };
 
-    fetch(SERVER_URL , {
+    fetch(SERVER_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -76,26 +77,26 @@ function sendMotionData(acceleration, rotationRate) {
 }
 
 // 서버로 입력된 숫자 값을 전송하는 함수 (예시)
-function sendNumberToServer(number) {
-    const data = {
-        numberValue: number
-    };
+// function sendNumberToServer(number) {
+//     const data = {
+//         numberValue: number
+//     };
 
-    fetch(SERVER_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("서버 응답:", data);
-    })
-    .catch(error => {
-        console.error("서버 에러:", error);
-    });
-}
+//     fetch(SERVER_URL, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log("서버 응답:", data);
+//     })
+//     .catch(error => {
+//         console.error("서버 에러:", error);
+//     });
+// }
 
 // 주기적으로 모션 데이터를 서버에 전송
 setInterval(sendMotionData, 5000);  //5초마다 전송
