@@ -7,34 +7,6 @@ let motionData = []; // 모션 센서 데이터 수집 배열
 
 const SERVER_URL = "https://f341-1-232-39-83.ngrok-free.app/";
 
-// 모바일에서 DeviceMotionEvent를 사용할 수 있는지 확인
-if (window.DeviceMotionEvent) {
-    // HTTPS 환경에서만 작동
-    if (window.location.protocol !== 'https:') {
-        statusDisplay.textContent = 'HTTPS 환경에서만 센서 데이터가 작동합니다.';
-        alert('HTTPS 환경에서만 센서 데이터가 작동합니다. HTTPS로 접속해주세요.');
-    } else {
-        // DeviceMotionEvent에 이벤트 리스너 추가
-        window.addEventListener("devicemotion", function(event) {
-            const acceleration = event.acceleration || { x: 0, y: 0, z: 0 };
-            const rotationRate = event.rotationRate || { alpha: 0, beta: 0, gamma: 0 };
-
-            // 센서 데이터 화면에 표시
-            accelerationDisplay.textContent = `x: ${acceleration.x}, y: ${acceleration.y}, z: ${acceleration.z}`;
-            rotationRateDisplay.textContent = `alpha: ${rotationRate.alpha}, beta: ${rotationRate.beta}, gamma: ${rotationRate.gamma}`;
-
-            // 콘솔에 센서 데이터 출력
-            console.log('가속도:', acceleration);
-            console.log('회전율:', rotationRate);
-        });
-
-        statusDisplay.textContent = '센서 데이터를 수집하고 있습니다.';
-    }
-} else {
-    statusDisplay.textContent = '이 기기는 DeviceMotionEvent를 지원하지 않습니다.';
-    alert('DeviceMotionEvent를 지원하지 않는 기기입니다.');
-}
-
 async function requestMotionPermission() {
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
         try {
