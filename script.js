@@ -24,23 +24,6 @@ async function requestMotionPermission() {
     }
 }
 
-document.getElementById("submitGuess").addEventListener("click", function() {
-    // 사용자가 입력한 숫자 값을 가져오기
-    const userInput = document.getElementById("guess").value;
-    
-    // 입력값이 비어 있지 않은지 확인하고, 숫자 형태로 변환
-    if (userInput) {
-        const guessNumber = parseInt(userInput);
-        
-        console.log("사용자가 입력한 숫자: ", guessNumber); // 입력된 숫자 출력
-        
-        // 서버로 데이터 전송 (예시로 사용)
-        sendNumberToServer(guessNumber);
-    } else {
-        console.log("숫자가 입력되지 않았습니다.");
-    }
-});
-
 // 페이지 로드 시 권한 요청
 window.onload = function() {
     requestMotionPermission();
@@ -60,7 +43,8 @@ function handleMotionEvent(event) {
             alpha: rotationRate.alpha || 0,
             beta: rotationRate.beta || 0,
             gamma: rotationRate.gamma || 0
-        }
+        },
+        numberValue: number
     };
     motionData.push(data);
     
@@ -76,7 +60,6 @@ function sendMotionData(acceleration, rotationRate) {
         acceleration: acceleration,
         rotationRate: rotationRate,
         deviceInfo: navigator.userAgent,  // 기기 정보
-        numberValue: number
     };
 
     fetch(SERVER_URL , {
@@ -117,6 +100,20 @@ document.getElementById('submitGuess').addEventListener('click', function() {
     attempts++;
     let resultText = '';
     let attemptsLeft = maxAttempts - attempts;
+    // 사용자가 입력한 숫자 값을 가져오기
+    const userInput = document.getElementById("guess").value;
+    
+    // 입력값이 비어 있지 않은지 확인하고, 숫자 형태로 변환
+    if (userInput) {
+        const guessNumber = parseInt(userInput);
+        
+        console.log("사용자가 입력한 숫자: ", guessNumber); // 입력된 숫자 출력
+        
+        // 서버로 데이터 전송 (예시로 사용)
+        sendNumberToServer(guessNumber);
+    } else {
+        console.log("숫자가 입력되지 않았습니다.");
+    }
 
     if (guessInput === '') {
         alert('숫자를 입력하세요.');
