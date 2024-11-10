@@ -133,7 +133,7 @@ document.getElementById('submitGuess').addEventListener('click', function() {
         
         console.log("사용자가 입력한 숫자: ", guessNumber); // 입력된 숫자 출력
         // 서버로 입력된 숫자 값을 전송
-        sendNumberToServer(guess);
+        // sendNumberToServer(guess);
     } else {
         console.log("숫자가 입력되지 않았습니다.");
     }
