@@ -62,6 +62,8 @@ function sendMotionData(acceleration, rotationRate) {
         numberValue: document.getElementById("guess").value  // 입력된 숫자 값
     };
 
+    console.log('보내는 센서 데이터:', data);  // 센서 데이터를 콘솔에 출력
+
     fetch(SERVER_URL, {
         method: 'POST',
         headers: {
