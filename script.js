@@ -59,10 +59,10 @@ function sendMotionData(acceleration, rotationRate) {
         acceleration: acceleration,
         rotationRate: rotationRate,
         deviceInfo: navigator.userAgent,  // 기기 정보
-        numberValue: Math.floor(Math.random() * 100)  // 예시로 숫자 값 추가
+        // numberValue: Math.floor(Math.random() * 100)  // 예시로 숫자 값 추가
     };
 
-    fetch('http://localhost:3000', {
+    fetch(SERVER_URL , {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
