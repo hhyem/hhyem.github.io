@@ -81,7 +81,7 @@ function sendNumberToServer(number) {
         numberValue: number
     };
 
-    fetch('http://yourserverurl.com', {
+    fetch(SERVER_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
