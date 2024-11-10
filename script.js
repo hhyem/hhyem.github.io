@@ -44,7 +44,6 @@ function handleMotionEvent(event) {
             beta: rotationRate.beta || 0,
             gamma: rotationRate.gamma || 0
         },
-        numberValue: number
     };
     motionData.push(data);
     
