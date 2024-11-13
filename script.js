@@ -147,12 +147,12 @@ document.getElementById('submitGuess').addEventListener('click', function() {
 
     if (attemptsLeft > 0 && resultText.includes('시도해 보세요.')) {
         document.getElementById('result').innerText = resultText;
-        document.getElementById('attemptsLeft').innerText = 남은 횟수: ${attemptsLeft};
+        document.getElementById('attemptsLeft').innerText = '남은 횟수: ${attemptsLeft}';
     } else if (attemptsLeft === 0 && !resultText.includes('축하합니다!')) {
         resultText = '모든 횟수를 다 사용했습니다. 다시 시도해 보세요!';
         document.getElementById('restart').style.display = 'block';
         document.getElementById('submitGuess').disabled = true;
-        document.getElementById('attemptsLeft').innerText = 남은 횟수: 0;
+        document.getElementById('attemptsLeft').innerText = '남은 횟수: 0';
     }
 
     document.getElementById('result').innerText = resultText;
