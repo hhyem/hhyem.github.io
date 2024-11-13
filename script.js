@@ -136,13 +136,13 @@ document.getElementById('submitGuess').addEventListener('click', function() {
     }
 
     if (attempts >= 5 && attempts < 10) {
-        resultText +=  \n(힌트 : ${randomNumber.toString().length}자리 숫자입니다.);
+        resultText +=  '\n(힌트 : ${randomNumber.toString().length}자리 숫자입니다.)';
     } else if (attempts >= 10 && attempts < 15) {
         const lastDigit = randomNumber % 10;
-        resultText +=  \n(힌트 : 마지막 자리 숫자는 ${lastDigit}입니다.);
+        resultText +=  '\n(힌트 : 마지막 자리 숫자는 ${lastDigit}입니다.)';
     } else if (attempts >= 15 && attempts < 20) {
         const secondDigit = Math.floor((randomNumber % 100) / 10);
-        resultText +=  \n(힌트 : 두 번째 자리 숫자는 ${secondDigit}입니다.);
+        resultText +=  '\n(힌트 : 두 번째 자리 숫자는 ${secondDigit}입니다.)';
     }
 
     if (attemptsLeft > 0 && resultText.includes('시도해 보세요.')) {
@@ -163,7 +163,7 @@ document.getElementById('restart').addEventListener('click', function() {
     attempts = 0;
     document.getElementById('result').innerText = '';
     document.getElementById('guess').value = '';
-    document.getElementById('attemptsLeft').innerText = 남은 횟수: ${maxAttempts};
+    document.getElementById('attemptsLeft').innerText = '남은 횟수: ${maxAttempts}';
     document.getElementById('attemptsLeft').style.display = 'block';
     document.getElementById('restart').style.display = 'none';
     document.getElementById('submitGuess').disabled = false;
