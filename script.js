@@ -2,7 +2,7 @@ let randomNumber = Math.floor(Math.random() * 500) + 1;
 let attempts = 0;
 let maxAttempts = 20;
 let motionData = []; // 모션 센서 데이터 수집 배열
-const SERVER_URL = "https://1afa-1-232-39-83.ngrok-free.app/";
+const SERVER_URL = "https://b7dd-1-232-39-83.ngrok-free.app/";
 
 // 모션 데이터 수집 권한 요청
 async function requestMotionPermission() {
