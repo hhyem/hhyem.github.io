@@ -5,7 +5,7 @@ let sensorData = { acceleration: { x: 0, y: 0, z: 0 }, rotationRate: { alpha: 0,
 let deviceInfo = navigator.userAgent;
 let motionData = []; // 모션 센서 데이터 수집 배열
 
-const SERVER_URL = "https://f341-1-232-39-83.ngrok-free.app/";
+const SERVER_URL = "https://7c6e-1-232-39-83.ngrok-free.app/";
 
 async function requestMotionPermission() {
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
