@@ -127,7 +127,7 @@ document.getElementById('submitGuess').addEventListener('click', function() {
     } else if (guess < randomNumber) {
         resultText = '더 큰 숫자를 시도해 보세요.';
     } else {
-        resultText = 축하합니다! ${attempts}번 만에 맞추셨습니다!;
+        resultText = 축하합니다 ${attempts}번 만에 맞추셨습니다;
         document.getElementById('result').innerText = resultText;
         document.getElementById('attemptsLeft').style.display = 'none';
         document.getElementById('restart').style.display = 'block';
