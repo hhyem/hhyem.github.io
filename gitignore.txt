@@ -1,0 +1,10 @@
+client/node_modules
+./client/node_modules
+/client/node_modules
+server/node_modules
+./server/node_modules
+/server/node_modules
+mongodb-compass_1.44.5_amd64.deb
+server/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+./server/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+/server/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
