@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const SERVER_URL = "https://dory-unbiased-marlin.ngrok-free.app/api/motion-data"; // 외부에서 접근 가능한 서버 URL
+    const SERVER_URL = "https://a983-114-70-38-242.ngrok-free.app/"; // 외부에서 접근 가능한 서버 URL
 
     // 모션 센서 데이터 수집 배열
     let motionData = [];
