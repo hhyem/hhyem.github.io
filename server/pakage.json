@@ -1,0 +1,16 @@
+{
+    "name": "motion-data-server",
+    "version": "1.0.0",
+    "main": "server.js",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.21.1",
+        "mongodb": "^6.10.0",
+        "mongoose": "^8.8.1",
+        "ws": "^8.18.0"
+    },
+    "scripts": {
+        "start": "node server.js"
+    }
+}
